@@ -1,6 +1,6 @@
 # TEST-02
 
-Para este tesr, se deben descargar los archivos en un directorio y ejecutar los siguientes comandos
+Para este test, se deben descargar los archivos en un directorio y ejecutar los siguientes comandos
 
 ```
 $ docker build -t test02 .
