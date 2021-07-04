@@ -1,0 +1,59 @@
+swagger: "2.0"
+info:
+  description: "This API have as porpouse get the information of a register user "
+  version: "1.0.0"
+  title: "Imformación Registrada"
+host: "example.com"
+basePath: "/v1"
+tags:
+- name: "user"
+  description: "Operations about user"
+schemes:
+- "https"
+paths:
+  /user/{country}/{id}:
+    get:
+      tags:
+      - "user"
+      summary: "Get User's informattion"
+      description: "For Argentina and Perú, the paramenter id could be the DNI or passport number. To Chile citizen the parameter id have to be the RUT."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "country"
+        in: "path"
+        description: "Country to consult"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "Argentina"
+          - "Chile"
+          - "Peru"
+      - name: "id"
+        in: "path"
+        description: "User's Id"
+        required: true
+        type: "string"
+      responses:
+        "200":
+           description: "successful operation"
+           schema:
+            $ref: "#/definitions/User"
+        "400":
+          description: "Invalid User Id supplied"
+        "404":
+          description: "User not found"
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
