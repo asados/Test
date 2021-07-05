@@ -28,9 +28,9 @@ paths:
         items:
           type: "string"
           enum:
-          - "Argentina"
-          - "Chile"
-          - "Peru"
+          - "AR"
+          - "CL"
+          - "PE"
       - name: "id"
         in: "path"
         description: "User's Id"
